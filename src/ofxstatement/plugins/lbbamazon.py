@@ -17,6 +17,8 @@ class LbbAmazonCsvStatementParser(CsvStatementParser):
 
         # Empty transactions to include amazon points
         if line[6] == '':
+            if self.ignore_amazon_points:
+                return None 
             line[6] = '0,00'
         #Change decimalsign from , to .
         line[6] = line[6].replace(',', '.')
@@ -34,4 +36,5 @@ class LbbAmazonPlugin(Plugin):
         parser.statement.account_id = self.settings['account']
         parser.statement.currency = self.settings['currency']
         parser.statement.bank_id = self.settings.get('bank', 'LBB_Amazon')
+        parser.ignore_amazon_points = self.settings.get('ignore_amazon_points', 'false').lower() in ('true', 'yes', 'on')
         return parser
