@@ -17,6 +17,7 @@ class LbbAmazonCsvStatementParser(CsvStatementParser):
 
         # Empty transactions to include amazon points
         if line[6] == '':
+            return None # ignore amazon points
             line[6] = '0,00'
         #Change decimalsign from , to .
         line[6] = line[6].replace(',', '.')
