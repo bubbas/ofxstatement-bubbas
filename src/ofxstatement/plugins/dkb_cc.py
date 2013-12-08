@@ -27,12 +27,15 @@ class DKBCCCsvStatementParser(CsvStatementParser):
 
         if self.cur_record <= 8:
             return None
-        line[4]=line[4].replace(',','.')
+        line[4]=line[4].replace('.','').replace(',','.')        
         # fill statement line according to mappings
         sl = super(DKBCCCsvStatementParser, self).parse_record(line)
         return sl
 
 class DKBCCPlugin(Plugin):
+    """
+    Deutsche Kreditbank AG, CSV of creditcard statements
+    """
     def get_parser(self, fin):
         f = open(fin, "r",encoding='iso-8859-1')
         parser=DKBCCCsvStatementParser(f)

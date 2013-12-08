@@ -1,5 +1,6 @@
 from ofxstatement.parser import CsvStatementParser
 from ofxstatement.plugin import Plugin
+from ofxstatement import statement
 import csv
 
 
@@ -29,6 +30,9 @@ class LbbAmazonCsvStatementParser(CsvStatementParser):
 
 
 class LbbAmazonPlugin(Plugin):
+    """
+    Landensbank Berlin AG, Amazon Creditcard CSV
+    """
 
     def get_parser(self, fin):
         f = open(fin, "r", encoding='iso-8859-1')

@@ -33,7 +33,8 @@ setup(name='ofxstatement-bubbas',
       entry_points={
           'ofxstatement':
           ['dkb_cc = ofxstatement.plugins.dkb_cc:DKBCCPlugin',
-           'lbbamazon = ofxstatement.plugins.lbbamazon:LbbAmazonPlugin']
+           'lbbamazon = ofxstatement.plugins.lbbamazon:LbbAmazonPlugin',
+           'flatex = ofxstatement.plugins.flatex:FlatexPlugin']
           },
       install_requires=['ofxstatement'],
       test_suite="ofxstatement.plugins.tests",
