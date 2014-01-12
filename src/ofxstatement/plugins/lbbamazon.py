@@ -32,6 +32,8 @@ class LbbAmazonCsvStatementParser(CsvStatementParser):
                     # delete the exchange fee transaction
                     del statement.lines[idx]
                 # please note that idx may now point to the next fresh line
+                if idx >= len(statement.lines):
+                    break
                 if statement.lines[idx].amount:
                     last_real_transaction_id = idx
         return statement
