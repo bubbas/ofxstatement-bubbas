@@ -7,6 +7,7 @@ import csv
 class LbbAmazonCsvStatementParser(CsvStatementParser):
     mappings = {"date": 1, "memo": 3, "amount": 6}
     date_format = "%d.%m.%Y"
+    ignore_amazon_points = False
 
     def split_records(self):
         return csv.reader(self.fin, delimiter=';')
