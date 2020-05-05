@@ -29,7 +29,7 @@ def doctest_FlatexCsvStatementParser():
     Check first line
         >>> l = statement.lines[0]
         >>> l.amount
-        -1672.5
+        Decimal('-1672.50')
         >>> l.payee 
         >>> l.memo
         'AusfÃ¼hrung ORDER Kauf,CNE1000004Y2 12345678,TA-Nr.: 12345678'
@@ -39,7 +39,7 @@ def doctest_FlatexCsvStatementParser():
     Check one more line:
         >>> l=statement.lines[2]
         >>> l.amount
-        -13.49
+        Decimal('-13.49')
         >>> l.payee
         >>> l.memo
         'GebÃ¼hren Ordernummer,12345678 Transnr 12345678,TA-Nr.: 12345678'
@@ -49,7 +49,7 @@ def doctest_FlatexCsvStatementParser():
     Check one more line with slashes in memo:
         >>> l=statement.lines[8]
         >>> l.amount
-        8.55
+        Decimal('8.55')
         >>> l.memo
         'ErtrÃ¤gnisausschÃ¼ttung,LU0136412771,TA-Nr.: 12345678'
         >>> l.date
