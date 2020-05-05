@@ -28,7 +28,7 @@ def doctest_LbbAmazonCsvStatementParser():
     Check first line
         >>> l = statement.lines[0]
         >>> l.amount
-        -0.17
+        Decimal('-0.17')
         >>> l.payee 
         >>> l.memo
         'ABGELTUNGSSTEUER'
@@ -38,7 +38,7 @@ def doctest_LbbAmazonCsvStatementParser():
     Check one more line:
         >>> l=statement.lines[2]
         >>> l.amount
-        0.75
+        Decimal('0.75')
         >>> l.payee
         >>> l.memo
         'HANDYRABATT'
@@ -48,7 +48,7 @@ def doctest_LbbAmazonCsvStatementParser():
     Check one more line with slashes in memo:
         >>> l=statement.lines[4]
         >>> l.amount
-        -30.0
+        Decimal('-30.00')
         >>> l.memo
         'AMAZON.ES COMPRA / amazon.es/ay'
         >>> l.date
@@ -57,7 +57,7 @@ def doctest_LbbAmazonCsvStatementParser():
     Check one more line with amazon points but without amount:
         >>> l=statement.lines[5]
         >>> l.amount
-        0.0
+        Decimal('0.00')
         >>> l.memo
         '+ 15.0 AMAZON.DE PUNKTE'
         >>> l.date

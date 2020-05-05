@@ -23,7 +23,7 @@ def doctest_DKBCCCsvStatementParser():
         >>> statement.start_date
         datetime.datetime(2012, 2, 7, 0, 0)
         >>> statement.end_balance
-        -76.77
+        Decimal('-76.77')
         >>> statement.end_date
         datetime.datetime(2013, 2, 4, 0, 0)
         >>> statement.currency
@@ -32,7 +32,7 @@ def doctest_DKBCCCsvStatementParser():
     Check first line
         >>> l = statement.lines[0]
         >>> l.amount
-        -95.0
+        Decimal('-95.00')
         >>> l.payee 
         >>> l.memo
         'MY BANK FIL'
@@ -42,7 +42,7 @@ def doctest_DKBCCCsvStatementParser():
     Check one more lines:
         >>> l=statement.lines[2]
         >>> l.amount
-        0.21
+        Decimal('0.21')
         >>> l.payee
         >>> l.memo
         'HabenzinsenZ 000000057 T 031   0000'
