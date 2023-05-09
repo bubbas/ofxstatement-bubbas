@@ -24,7 +24,9 @@ class FlatexCsvStatementParser(CsvStatementParser):
         line[5]=line[5].replace('.','').replace(',','.')
             
         # fill statement line according to mappings
+        
         sl = super(FlatexCsvStatementParser, self).parse_record(line)
+        sl.id = statement.generate_transaction_id(sl)
         return sl    
 
 
@@ -33,7 +35,7 @@ class FlatexPlugin(Plugin):
     def get_parser(self, fin):
         f = open(fin, "r",encoding='iso-8859-1')
         parser=FlatexCsvStatementParser(f)
-        parser.statement.account_id = self.settings['account']
+        parser.statement.account_id = self.settings.get('account', '')
         parser.statement.currency = None
         parser.statement.bank_id = self.settings.get('bank', 'FLATEX_Cash') 
         return parser

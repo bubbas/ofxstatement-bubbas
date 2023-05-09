@@ -4,29 +4,30 @@
 from setuptools import find_packages
 from distutils.core import setup
 
-version = "1.0.0"
+version = "1.0.1"
 
-with open('README.rst') as f:
+with open("README.rst") as f:
     long_description = f.read()
 
 setup(name='ofxstatement-bubbas',
       version=version,
       author="bubbas",
       author_email="",
-      url="https://github.com/kedder/ofxstatement-bubbas",
+      url="https://github.com/bubbas/ofxstatement-bubbas",
       description=("ofxstatement plugins from bubbas"),
-      long_description=long_description,
-      license="GPLv3",
-      keywords=["ofx", "ofxstatement"],
-      classifiers=[
-          'Development Status :: 3 - Alpha',
-          'Programming Language :: Python :: 3',
-          'Natural Language :: English',
-          'Topic :: Office/Business :: Financial :: Accounting',
-          'Topic :: Utilities',
-          'Environment :: Console',
-          'Operating System :: OS Independent',
-          'License :: OSI Approved :: GNU Affero General Public License v3'],
+    long_description=long_description,
+    license="GPLv3",
+    keywords=["ofx", "banking", "statement"],
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Programming Language :: Python :: 3",
+        "Natural Language :: English",
+        "Topic :: Office/Business :: Financial :: Accounting",
+        "Topic :: Utilities",
+        "Environment :: Console",
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    ],
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=["ofxstatement", "ofxstatement.plugins"],
@@ -36,8 +37,7 @@ setup(name='ofxstatement-bubbas',
            'lbbamazon = ofxstatement.plugins.lbbamazon:LbbAmazonPlugin',
            'flatex = ofxstatement.plugins.flatex:FlatexPlugin']
           },
-      install_requires=['ofxstatement'],
-      test_suite="ofxstatement.plugins.tests",
-      include_package_data=True,
-      zip_safe=True
+    install_requires=["ofxstatement"],
+    include_package_data=True,
+    zip_safe=True,
       )

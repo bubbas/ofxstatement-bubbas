@@ -30,6 +30,7 @@ class DKBCCCsvStatementParser(CsvStatementParser):
         line[4]=line[4].replace('.','').replace(',','.')        
         # fill statement line according to mappings
         sl = super(DKBCCCsvStatementParser, self).parse_record(line)
+        sl.id = statement.generate_transaction_id(sl)
         return sl
 
 class DKBCCPlugin(Plugin):
@@ -39,7 +40,7 @@ class DKBCCPlugin(Plugin):
     def get_parser(self, fin):
         f = open(fin, "r",encoding='iso-8859-1')
         parser=DKBCCCsvStatementParser(f)
-        parser.statement.account_id = self.settings['account']
+        parser.statement.account_id = self.settings.get('account', '')
         parser.statement.bank_id = self.settings.get('bank', 'DKB_VISA')
         return parser
 
